@@ -11,14 +11,14 @@ public abstract class Cafe {
     private int intensidade;
     protected List<Opiniao> opinioes;
     protected int degustacoes;
-    protected double nota;
+    protected double qualidade;
 
     public Cafe(String nome, String origem, int intensidade) {
         this.nome = nome;
         this.origem = origem;
         this.intensidade = intensidade;
         this.opinioes = new ArrayList<>();
-        this.nota = 0;
+        this.qualidade = 0;
     }
 
     public void adicionaOpiniao(String nome, int nota, String comentario) {
@@ -48,9 +48,8 @@ public abstract class Cafe {
         return this.nome + ": " + this.origem + ", " + this.intensidade;
     }
 
-
     public String[] getOpinioes(int qtdOpinioes) {
-    	String[] saida = null;
+        String[] saida = null;
         if (qtdOpinioes > 0 && qtdOpinioes <= this.opinioes.size()) {
             saida = new String[qtdOpinioes];
             int contador = 0;
@@ -61,7 +60,6 @@ public abstract class Cafe {
         }
         return saida;
     }
-
 
     public String getNome() {
         return this.nome;

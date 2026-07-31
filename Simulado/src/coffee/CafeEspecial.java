@@ -11,7 +11,7 @@ public class CafeEspecial extends Cafe {
 
     public double calculaNota() {
         double saida = media() * 2.0 * aroma;
-        this.nota = saida;
+        this.qualidade = saida;
         return saida;
     }
 
