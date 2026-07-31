@@ -11,8 +11,8 @@ public class CafePremium extends Cafe {
 
     public double calculaNota() {
         double saida = media() * 3.5 * raridade;
+        this.nota = saida;
         return saida;
     }
 
 }
-

@@ -28,6 +28,15 @@ public class CoffeClubController {
         return socios.containsKey(chave);
     }
 
+    private void validarEntradaCafe(String nome, String origem, int intensidade) {
+        if (nome == null || origem == null || nome.trim().equals("") || origem.trim().equals("")) {
+            throw new IllegalArgumentException("Argumentos inválidos");
+        }
+        if (intensidade < 1 || intensidade > 5) {
+            throw new IllegalArgumentException("Argumentos inválidos");
+        }
+    }
+
     public boolean cadastrarCafeTradicional(String nome, String origem, int intensidade, int tempoTorra) {
         validarEntradaCafe(nome, origem, intensidade);
         if (cafeExiste(nome)) {
@@ -56,15 +65,6 @@ public class CoffeClubController {
         Cafe novoCafe = new CafePremium(nome, origem, intensidade, raridade);
         cafes.put(nome, novoCafe);
         return true;
-    }
-
-    private void validarEntradaCafe(String nome, String origem, int intensidade) {
-        if (nome == null || origem == null || nome.trim().equals("") || origem.trim().equals("")) {
-            throw new IllegalArgumentException("Argumentos inválidos");
-        }
-        if (intensidade < 1 || intensidade > 5) {
-            throw new IllegalArgumentException("Argumentos inválidos");
-        }
     }
 
     public boolean cadastrarSocio(String codigo, String nome) {
